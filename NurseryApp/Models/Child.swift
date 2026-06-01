@@ -10,6 +10,8 @@ import Foundation
 struct Child: Identifiable {
     let id = UUID()
     
+    //var incidents: [Incident] = []
+    
     var name: String
     var room: String
     var isPresent: Bool

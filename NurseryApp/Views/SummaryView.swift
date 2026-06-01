@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import Charts
 struct SummaryView: View {
     @EnvironmentObject var vm: ChildViewModel
     
@@ -65,6 +65,24 @@ struct SummaryView: View {
                             }
                         }
                     }
+                    Chart {
+                        BarMark(
+                            x: .value("Category", "Full"),
+                            y: .value("Count", vm.children.filter{$0.meal=="Full"}.count)
+                        )
+
+                        BarMark(
+                            x: .value("Category", "Half"),
+                            y: .value("Count", vm.children.filter{$0.meal=="Half"}.count)
+                        )
+
+                        BarMark(
+                            x: .value("Category", "None"),
+                            y: .value("Count", vm.children.filter{$0.meal=="None"}.count)
+                        )
+                    }
+                    .frame(height: 200)
+                    .padding()
                     .padding()
                     .background(Color(.systemBackground))
                     .cornerRadius(16)

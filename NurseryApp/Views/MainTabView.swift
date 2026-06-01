@@ -9,6 +9,9 @@ import SwiftUI
 
 struct MainTabView: View {
     
+    @StateObject private var childVM = ChildViewModel()
+    @StateObject private var incidentVM = IncidentViewModel()
+    
     var body: some View {
         
         TabView {
@@ -38,6 +41,15 @@ struct MainTabView: View {
             }
             .tabItem {
                 Label("Gallery", systemImage: "photo")
+            }
+            NavigationStack {
+                DashboardView(
+                    childVM: childVM,
+                    incidentVM: incidentVM
+                )
+            }
+            .tabItem {
+                Label("Dashboard", systemImage: "square.grid.2x2")
             }
             
         }

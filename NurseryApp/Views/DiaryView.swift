@@ -24,7 +24,7 @@ struct DiaryView: View {
                                 
                                 HStack {
                                     Text(child.name)
-                                        .font(.subheadline)
+                                        .font(.title3)
                                         .bold()
                                         .foregroundColor(.primary)
                                     
@@ -44,7 +44,7 @@ struct DiaryView: View {
                                 HStack {
                                     NavigationLink(destination: AddEditEntryView(child: child)) {
                                         Text("Edit")
-                                            .font(.caption2)
+                                            .font(.body)
                                             .bold()
                                             .padding(.horizontal, 10)
                                             .padding(.vertical, 4)
@@ -63,7 +63,7 @@ struct DiaryView: View {
                                     .foregroundColor(.red)
                                 }
                             }
-                            .padding(10)
+                            .padding(14)
                             .background(Color(.systemBackground))
                             .cornerRadius(12)
                             .shadow(color: Color.black.opacity(0.04), radius: 3)

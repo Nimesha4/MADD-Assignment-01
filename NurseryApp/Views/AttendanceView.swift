@@ -32,11 +32,11 @@ struct AttendanceView: View {
                             
                             VStack(alignment: .leading, spacing: 2) {
                                 Text(child.name)
-                                    .font(.subheadline)
+                                    .font(.title3)
                                     .bold()
                                 
                                 Text(child.room)
-                                    .font(.caption2)
+                                    .font(.body)
                                     .foregroundColor(.secondary)
                             }
                             
@@ -49,7 +49,7 @@ struct AttendanceView: View {
                             
                             if let time = child.checkInTime, child.isPresent {
                                 Text(time)
-                                    .font(.caption2)
+                                    .font(.footnote)
                                     .foregroundColor(.secondary)
                             }
                             
@@ -69,7 +69,7 @@ struct AttendanceView: View {
                             }
                             .foregroundColor(.red)
                         }
-                        .padding(10)
+                        .padding(14)
                         .background(Color(.systemBackground))
                         .cornerRadius(12)
                         .shadow(color: Color.black.opacity(0.04), radius: 3)

@@ -11,12 +11,14 @@ import SwiftUI
 struct NurseryAppApp: App {
     @StateObject var vm = ChildViewModel()
     @AppStorage("isDarkMode") private var isDarkMode = false
+    @StateObject private var incidentVM = IncidentViewModel()
     
     var body: some Scene {
         WindowGroup {
             MainTabView()
                 .environmentObject(vm)
                 .preferredColorScheme(isDarkMode ? .dark : .light)
+                .environmentObject(incidentVM)
         }
     }
 }
