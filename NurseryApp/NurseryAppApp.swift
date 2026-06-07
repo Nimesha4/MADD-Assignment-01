@@ -15,7 +15,7 @@ struct NurseryAppApp: App {
     
     var body: some Scene {
         WindowGroup {
-            MainTabView()
+            MainSplitView()
                 .environmentObject(vm)
                 .preferredColorScheme(isDarkMode ? .dark : .light)
                 .environmentObject(incidentVM)

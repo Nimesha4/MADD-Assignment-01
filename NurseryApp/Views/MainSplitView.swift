@@ -9,31 +9,93 @@ import SwiftUI
 
 struct MainSplitView: View {
 
+    @EnvironmentObject var childVM: ChildViewModel
+    @EnvironmentObject var incidentVM: IncidentViewModel
+
     var body: some View {
 
         NavigationSplitView {
 
             List {
 
-                NavigationLink("Attendance") {
+                NavigationLink {
+
                     AttendanceView()
+
+                } label: {
+
+                    Label(
+                        "Attendance",
+                        systemImage: "person.3"
+                    )
                 }
 
-                NavigationLink("Diary") {
+                NavigationLink {
+
                     DiaryView()
+
+                } label: {
+
+                    Label(
+                        "Diary",
+                        systemImage: "book"
+                    )
                 }
 
-                NavigationLink("Dashboard") {
+                NavigationLink {
+
+                    SummaryView()
+
+                } label: {
+
+                    Label(
+                        "Summary",
+                        systemImage: "chart.bar"
+                    )
+                }
+
+                NavigationLink {
+
+                    GalleryView()
+
+                } label: {
+
+                    Label(
+                        "Gallery",
+                        systemImage: "photo"
+                    )
+                }
+
+                NavigationLink {
+
                     DashboardView(
-                        childVM: ChildViewModel(),
-                        incidentVM: IncidentViewModel()
+                        childVM: childVM,
+                        incidentVM: incidentVM
+                    )
+
+                } label: {
+
+                    Label(
+                        "Dashboard",
+                        systemImage: "square.grid.2x2"
                     )
                 }
             }
+            .navigationTitle("Nursery")
 
         } detail: {
 
-            Text("Select a Section")
+            DashboardView(
+                childVM: childVM,
+                incidentVM: incidentVM
+            )
         }
     }
+}
+
+#Preview {
+
+    MainSplitView()
+        .environmentObject(ChildViewModel())
+        .environmentObject(IncidentViewModel())
 }

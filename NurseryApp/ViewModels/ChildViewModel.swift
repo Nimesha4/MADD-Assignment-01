@@ -12,10 +12,25 @@ import Foundation
 
 class ChildViewModel: ObservableObject {
     @Published var children: [Child] = [
-        Child(name: "John", room: "Room A", isPresent: true, checkInTime: "8:30 AM", meal: "Full", mood: "Happy", notes: "Good"),
-        Child(name: "Anna", room: "Room B", isPresent: true, checkInTime: "8:45 AM", meal: "Half", mood: "Tired", notes: "Sleepy"),
-        Child(name: "Liam", room: "Room A", isPresent: false, checkInTime: nil, meal: nil, mood: nil, notes: nil)
-    ]
+        Child(name: "Emma", room: "Room A", isPresent: true, checkInTime: "8:05 AM", meal: "Full", mood: "Happy", notes: "Participated actively in morning circle."),
+
+
+            Child(name: "Sophia", room: "Room A", isPresent: true, checkInTime: "8:20 AM", meal: "Full", mood: "Excited", notes: "Played well with friends."),
+
+            Child(name: "Liam", room: "Room C", isPresent: true, checkInTime: "8:25 AM", meal: "Full", mood: "Happy", notes: "Completed puzzle activity."),
+
+            Child(name: "Olivia", room: "Room B", isPresent: true, checkInTime: "8:30 AM", meal: "Half", mood: "Tired", notes: "Needed extra rest after lunch."),
+
+            Child(name: "Noah", room: "Room A", isPresent: true, checkInTime: "8:35 AM", meal: "Full", mood: "Happy", notes: "Participated in storytelling session."),
+
+            Child(name: "Kavii", room: "Room B", isPresent: true, checkInTime: "8:45 AM", meal: "Half", mood: "Calm", notes: "Worked on colouring activity."),
+
+            Child(name: "Lucas", room: "Room C", isPresent: true, checkInTime: "8:55 AM", meal: "Full", mood: "Energetic", notes: "Joined group games enthusiastically."),
+
+            Child(name: "Charlotte", room: "Room B", isPresent: false, checkInTime: nil, meal: nil, mood: nil, notes: nil),
+
+            Child(name: "Benjamin", room: "Room A", isPresent: false, checkInTime: nil, meal: nil, mood: nil, notes: nil)
+        ]
     
     func checkIn(child: Child) {
         if let index = children.firstIndex(where: { $0.id == child.id }) {
